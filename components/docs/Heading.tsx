@@ -25,7 +25,7 @@ export function Heading({
       ref.current.id = slugify(text);
     }
   }, [idProp]);
-  const Tag = `h${level}` as keyof JSX.IntrinsicElements;
+  const Tag = `h${level}` as "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   return (
     <Tag ref={ref} id={idProp} className="scroll-mt-20">
       {children}
