@@ -1,0 +1,28 @@
+---
+title: Authentication
+description: How to authenticate API requests with InfraRed.
+---
+
+# Authentication
+
+All API requests must include your API key in the `Authorization` header.
+
+## API key
+
+Send your key using Bearer authentication:
+
+```
+Authorization: Bearer YOUR_API_KEY
+```
+
+Replace `YOUR_API_KEY` with a secret key from the [InfraRed dashboard](https://app.infraredaml.com). Do not share or commit this key. Use environment variables or a secrets manager in production.
+
+## Test keys
+
+In the dashboard you can create test (sandbox) keys. Use these with the sandbox base URL (`https://sandbox.infraredaml.com`) to make requests without affecting live data or billing.
+
+## Security
+
+- Use HTTPS only.
+- Do not expose API keys in client-side code or public repositories.
+- Rotate keys if they may have been compromised.

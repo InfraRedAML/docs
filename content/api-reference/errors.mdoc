@@ -1,0 +1,30 @@
+---
+title: Errors
+description: How the API reports errors and how to handle them.
+---
+
+# Errors
+
+The InfraRed API uses standard HTTP status codes and returns a JSON body for errors.
+
+## Error response format
+
+When an error occurs, the response body includes an `error` object with:
+
+- **code** – Machine-readable error code
+- **message** – Human-readable description
+- **field** – Optional; the request field that caused the error, when applicable
+- **livemode** – Whether the error occurred in live or test mode
+
+## HTTP status codes
+
+- **400 Bad Request** – Invalid request (e.g. validation failure, malformed body)
+- **401 Unauthorized** – Missing or invalid API key
+- **403 Forbidden** – Valid credentials but insufficient permissions
+- **404 Not Found** – Resource or endpoint not found
+- **413 Payload Too Large** – Request body exceeds size limits
+- **429 Too Many Requests** – Rate limit exceeded
+- **500 Internal Server Error** – Server error; retry with backoff
+- **504 Gateway Timeout** – Upstream timeout; retry later
+
+Include the `X-Request-Id` header from the response when contacting support.

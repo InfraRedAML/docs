@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+[x-cloak] {
+  display: none !important;
+}
+
+@layer base {
+  :root {
+    --color-dialog-backdrop: #68669933;
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --font-sans: "Instrument Sans", sans-serif;
+    --color-gray-100: #fcfcfc;
+    --color-gray-200: #f9f9f9;
+    --color-gray-300: #f0f0f0;
+    --color-gray-400: #e8e8e8;
+    --color-gray-800: #bbbbbb;
+    --color-gray-900: #8d8d8d;
+    --color-gray-1100: #646464;
+    --color-gray-1200: #202020;
+    --color-blue-300: #e6f4fe;
+    --color-blue-1000: #0588f0;
+    --color-blue-1100: #0d74ce;
+    --color-red-300: #feebec;
+    --color-red-1000: #dc3e42;
+    --color-red-1100: #ce2c31;
+    --color-lime-100: #ecfcca;
+    --color-lime-700: #497d00;
+    --color-green-500: #c4e8d1;
+    --color-green-800: #5bb98b;
+    --color-green-1100: #218358;
+    --color-orange-300: #ffefd6;
+    --color-orange-900: #f76b15;
+    --color-orange-1000: #ef5f00;
+    --color-purple-400: #f2e2fc;
+    --color-purple-1000: #8347b9;
+    --color-slate-200: #f9f9fb;
+    --color-slate-300: #f0f0f3;
+    --color-slate-400: #e8e8ec;
+    --color-slate-600: #d9d9e0;
+    --color-slate-700: #334155;
+    --color-slate-800: #b9bbc6;
+    --color-slate-900: #8b8d98;
+    --color-slate-1000: #80838d;
+    --color-slate-1100: #60646c;
+    --color-slate-1200: #1c2024;
+  }
+}
