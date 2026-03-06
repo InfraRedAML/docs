@@ -9,7 +9,7 @@ import { ApiRequest } from "@/components/docs/ApiRequest";
 import { ApiResponse } from "@/components/docs/ApiResponse";
 import { Heading } from "@/components/docs/Heading";
 
-const components: Record<string, React.ComponentType<unknown>> = {
+const components: Record<string, React.ComponentType<any>> = {
   callout: Callout,
   codeblock: CodeBlock,
   "code-block": CodeBlock,

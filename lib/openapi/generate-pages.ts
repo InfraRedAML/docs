@@ -16,7 +16,7 @@ export function getApiRefSlugs(spec: OpenAPISpec | null): ApiRefSlug[] {
       const op = pathItem[method];
       if (!op) continue;
       const pathSegments = pathKey.split("/").filter(Boolean);
-      const slug = ["api-reference", ...pathSegments, method];
+      const slug = ["api", ...pathSegments, method];
       slugs.push({
         slug,
         method: method.toUpperCase(),
@@ -33,7 +33,7 @@ export function getOperationBySlug(
   slug: string[]
 ): ApiOperation | null {
   if (!spec?.paths || slug.length < 3) return null;
-  const segments = slug[0] === "api-reference" ? slug.slice(1) : slug;
+  const segments = slug[0] === "api" ? slug.slice(1) : slug;
   const method = segments[segments.length - 1]?.toLowerCase();
   const pathSegments = segments.slice(0, -1);
   const pathKey = "/" + pathSegments.join("/");

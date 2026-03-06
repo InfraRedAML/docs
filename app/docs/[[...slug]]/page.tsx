@@ -24,13 +24,14 @@ export async function generateStaticParams() {
   const contentSlugs = getAllDocSlugs();
   const spec = loadOpenAPISpec(OPENAPI_SPEC_PATH);
   const apiSlugs: { slug: string[] }[] = [
-    { slug: ["api-reference"] },
-    { slug: ["api-reference", "introduction"] },
-    { slug: ["api-reference", "authentication"] },
-    { slug: ["api-reference", "errors"] },
+    { slug: ["api"] },
+    { slug: ["api", "introduction"] },
+    { slug: ["api", "authentication"] },
+    { slug: ["api", "errors"] },
     ...getApiRefSlugs(spec).map(({ slug }) => ({ slug })),
   ];
   return [
+    { slug: [] },
     ...contentSlugs.map((slug) => ({ slug })),
     ...apiSlugs,
   ];
@@ -44,13 +45,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: "Document extraction, fraud detection, and document collection APIs",
     };
   }
-  if (slug[0] === "api-reference") {
+  if (slug[0] === "api") {
     if (slug.length === 1) {
-      redirect("/docs/api-reference/introduction");
+      redirect("/docs/api/introduction");
     }
     const contentSlug = slug[1];
     if (slug.length === 2 && API_CONTENT_PAGES.includes(contentSlug as typeof API_CONTENT_PAGES[number])) {
-      const doc = getDocBySlug(["api-reference", contentSlug]);
+      const doc = getDocBySlug(["api", contentSlug]);
       return doc
         ? {
             title: doc.frontmatter.title ? `${doc.frontmatter.title} | InfraRed API` : "API Reference | InfraRed API",
@@ -129,7 +130,7 @@ export default async function DocPage({ params }: PageProps) {
               </span>
             </Link>
             <Link
-              href="/docs/api-reference"
+              href="/docs/api"
               className="flex flex-col rounded-lg border border-slate-600 bg-gray-100 p-5 transition hover:border-blue-1000 hover:bg-blue-300"
             >
               <span className={CARD_TITLE_CLASS}>
@@ -144,13 +145,13 @@ export default async function DocPage({ params }: PageProps) {
       </div>
     );
   }
-  if (slug[0] === "api-reference") {
+  if (slug[0] === "api") {
     if (slug.length === 1) {
-      redirect("/docs/api-reference/introduction");
+      redirect("/docs/api/introduction");
     }
     const contentSlug = slug[1];
     if (slug.length === 2 && API_CONTENT_PAGES.includes(contentSlug as typeof API_CONTENT_PAGES[number])) {
-      const doc = getDocBySlug(["api-reference", contentSlug]);
+      const doc = getDocBySlug(["api", contentSlug]);
       if (!doc) notFound();
       const headings = getHeadings(doc.body);
       const content = renderMarkdoc(doc.body);

@@ -12,7 +12,7 @@ export function Logo({
   className?: string;
   label?: "Docs" | "API";
 }) {
-  const href = label === "API" ? "/docs/api-reference" : "/docs";
+  const href = label === "API" ? "/docs/api" : "/docs";
   return (
     <Link
       href={href}

@@ -18,7 +18,7 @@ export const DOCS_NAV: NavItem[] = [
 ];
 
 export const API_NAV_SECTIONS: { title: string; href: string }[] = [
-  { title: "Introduction", href: "/docs/api-reference/introduction" },
-  { title: "Authentication", href: "/docs/api-reference/authentication" },
-  { title: "Errors", href: "/docs/api-reference/errors" },
+  { title: "Introduction", href: "/docs/api/introduction" },
+  { title: "Authentication", href: "/docs/api/authentication" },
+  { title: "Errors", href: "/docs/api/errors" },
 ];

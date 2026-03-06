@@ -40,8 +40,8 @@ function labelFromSpec(specPath: string, fallbackId: string): string {
     if (!info) return fallbackId;
     const version = typeof info.version === "string" ? info.version : "";
     const codename =
-      typeof (info["x-codename"] ?? info.x - codename) === "string"
-        ? (info["x-codename"] ?? info.x - codename) as string
+      typeof (info["x-codename"] ?? info["x_codename"]) === "string"
+        ? (info["x-codename"] ?? info["x_codename"]) as string
         : "";
     if (version && codename) return `${version}.${codename}`;
     if (version) return version;

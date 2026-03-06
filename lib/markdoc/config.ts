@@ -1,10 +1,10 @@
-import Markdoc from "@markdoc/markdoc";
+import Markdoc, { type Config } from "@markdoc/markdoc";
 import { tags } from "@/markdoc/tags";
 import { nodes } from "@/markdoc/nodes";
 
-export const markdocConfig: Markdoc.Config = {
-  tags: tags as Record<string, Markdoc.TagConfig>,
-  nodes: nodes as Record<string, Markdoc.NodeConfig>,
+export const markdocConfig: Config = {
+  tags: tags as unknown as NonNullable<Config["tags"]>,
+  nodes: nodes as unknown as NonNullable<Config["nodes"]>,
 };
 
 export function parseAndTransform(content: string) {

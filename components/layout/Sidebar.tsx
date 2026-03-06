@@ -56,7 +56,7 @@ type ApiNav = { sections: { title: string; href: string }[]; endpoints: { title:
 export function Sidebar({ nav, apiNav }: { nav: NavItem[]; apiNav?: ApiNav | null }) {
   const pathname = usePathname();
   const [openSections, setOpenSections] = useState<Set<string>>(() => new Set());
-  const isApiSection = pathname?.startsWith("/docs/api-reference");
+  const isApiSection = pathname?.startsWith("/docs/api");
 
   useEffect(() => {
     if (!isApiSection) {
@@ -91,7 +91,7 @@ export function Sidebar({ nav, apiNav }: { nav: NavItem[]; apiNav?: ApiNav | nul
             {apiNav.sections.map((item) => {
               const isActive =
                 pathname === item.href ||
-                (item.title === "Introduction" && pathname === "/docs/api-reference");
+                (item.title === "Introduction" && pathname === "/docs/api");
               const icon = item.title === "Introduction" ? <HomeIcon /> : item.title === "Authentication" ? <KeyIcon /> : <ErrorIcon />;
               return (
                 <Link
